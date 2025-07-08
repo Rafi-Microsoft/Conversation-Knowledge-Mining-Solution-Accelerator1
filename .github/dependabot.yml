@@ -1,7 +1,7 @@
 version: 2
 
 updates:
-  # GitHub Actions - grouped
+  # GitHub Actions
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
@@ -11,11 +11,12 @@ updates:
       prefix: "build"
     open-pull-requests-limit: 10
     groups:
-      github-actions:
-        patterns:
-          - "*"
+      github-actions-security:
+        applies-to: "security-updates"
+      github-actions-version:
+        applies-to: "version-updates"
 
-  # Python backend dependencies - grouped
+  # Python backend dependencies
   - package-ecosystem: "pip"
     directory: "/src/api"
     schedule:
@@ -25,11 +26,12 @@ updates:
       prefix: "build"
     open-pull-requests-limit: 10
     groups:
-      backend-deps:
-        patterns:
-          - "*"
+      backend-security:
+        applies-to: "security-updates"
+      backend-version:
+        applies-to: "version-updates"
 
-  # Frontend npm dependencies - grouped
+  # Frontend npm dependencies
   - package-ecosystem: "npm"
     directory: "/src/App"
     schedule:
@@ -41,9 +43,10 @@ updates:
     registries:
       - npm_public_registry
     groups:
-      frontend-deps:
-        patterns:
-          - "*"
+      frontend-security:
+        applies-to: "security-updates"
+      frontend-version:
+        applies-to: "version-updates"
 
 registries:
   npm_public_registry:
