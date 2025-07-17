@@ -1,7 +1,7 @@
 version: 2
 
 updates:
-  # GitHub Actions - grouped
+  # GitHub Actions - groupe
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
